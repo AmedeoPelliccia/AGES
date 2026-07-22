@@ -46,3 +46,25 @@ Questions raised by the proposed GENTILE and GTL functional engines
 28. Can a failed action produce a valid recovery baseline?
 29. How should human, organisational and delegated machine authority
     be combined?
+
+Questions raised by the proposed AGES-CPS profile for cyber-physical
+and robotic systems
+([`../profiles/AGES-CPS/`](../profiles/AGES-CPS/README.md)):
+
+30. Which physical properties belong to configuration identity?
+31. When does recalibration create a baseline?
+32. How should wear and degradation be represented?
+33. Can physically different robots share a logical baseline?
+34. How does hardware replacement affect identity?
+35. What qualifies digital-twin evidence?
+36. What constitutes sufficient physical closure evidence?
+37. When does online learning become evolutionary change?
+38. How should uncertainty constrain GTL actions?
+39. Can fleets maintain multiple valid baselines?
+40. How should physically irreversible transitions be ratified?
+41. Can a failed deployment produce a recovery baseline?
+42. Which invariants must remain independent of learned components?
+43. How should emergency authority be bounded and time-limited?
+44. How should ROS 2 lifecycle concepts map to AGES objects?
+45. How should safety-certified and non-certified components coexist?
+46. How should GENTILE ambiguity affect GTL admissibility?

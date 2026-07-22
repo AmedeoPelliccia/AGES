@@ -207,7 +207,25 @@ the AI-II reference architecture nor the SAI-AUT-OS open standard is
 required to study, implement or conform to AGES — and the converse holds
 equally. See [`positioning/`](positioning/README.md).
 
-## 14. Repository map
+## 14. Robotics and cyber-physical systems
+
+Robotics is a compelling practical AGES domain — though not the
+exclusive one. **AGES-CPS** ([`profiles/AGES-CPS/`](profiles/AGES-CPS/README.md))
+is an exploratory application profile of AGES for cyber-physical and
+robotic systems. Conventional robotics focuses on execution,
+communication and control; AGES-CPS adds governed identity across
+evolution: hardware–software co-baselines, delegated operational
+envelopes, physical invariants, digital–physical closure evidence,
+recovery semantics and fleet effectivity. GENTILE and GTL connect
+negotiated intent to bounded robotic action, and the Evolution Control
+Plane is normally outside the hard real-time control path. The profile
+replaces neither robotics middleware nor runtime safety mechanisms.
+
+> **AGES-CPS addresses not only what an autonomous machine may do, but
+> how its identity remains governed when its models, policies,
+> calibration, capabilities or hardware configuration change.**
+
+## 15. Repository map
 
 | Path | Contents |
 |---|---|
@@ -216,12 +234,13 @@ equally. See [`positioning/`](positioning/README.md).
 | [`models/`](models/README.md) | Minimal conceptual, temporal, transition and identity-continuity models |
 | [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects, including GENTILE semantic artefact, GTL action candidate and closure evidence |
 | [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES |
+| [`profiles/`](profiles/README.md) | Application profiles; AGES-CPS — exploratory profile for cyber-physical and robotic systems |
 | [`research/`](research/README.md) | Open questions, terminological issues, bibliography |
-| [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENTILE, GTL and their integration lifecycle |
-| [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical; worked GENTILE–GTL examples |
+| [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENTILE, GTL and their integration lifecycle; draft AGES-CPS RFCs |
+| [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical; worked GENTILE–GTL examples; AGES-CPS robotic examples |
 | [`tools/`](tools/README.md) | Deterministic repository generator (single source of truth for structure) |
 
-## 15. Current status
+## 16. Current status
 
 ```text
 Status: Exploratory research and pre-specification
@@ -230,7 +249,7 @@ Status: Exploratory research and pre-specification
 Terminology, formal models and boundaries are expected to evolve through
 RFCs ([`rfcs/0000-rfc-process.md`](rfcs/0000-rfc-process.md)).
 
-## 16. Open research questions
+## 17. Open research questions
 
 See [`research/open-questions.md`](research/open-questions.md). Among
 them: what establishes system identity across substantial change; which
@@ -244,7 +263,7 @@ replacement; whether one system may contain multiple asynchronous
 evolutionary timelines; and who authorises — and for how long — the
 operation of a deployed but not yet ratified configuration.
 
-## 17. Contributing
+## 18. Contributing
 
 Contributions are invited from systems engineering, AI architecture,
 configuration management, safety engineering, formal methods, software
@@ -255,7 +274,7 @@ governance, certification and lifecycle management. See
 Licensing is under review and will be declared before the first formal
 release ([`LICENSE`](LICENSE)).
 
-## 18. Closing statement
+## 19. Closing statement
 
 > **AGES treats artificial evolution not as uncontrolled change, but as
 > an engineered continuity of governed states.**

@@ -12,3 +12,10 @@ transition, evidence, effectivity;
 [GTL action candidate](examples/gtl-action-candidate.example.yaml) and
 [closure evidence](examples/closure-evidence.example.yaml) for the
 proposed GENTILE and GTL functional engines.
+Illustrative examples for the AGES-CPS profile
+([`../profiles/AGES-CPS/`](../profiles/AGES-CPS/README.md)):
+[robotic baseline](examples/robotic-baseline.example.yaml),
+[delegated operational envelope](examples/delegated-operational-envelope.example.yaml),
+[robotic action candidate](examples/robotic-action-candidate.example.yaml),
+[physical closure evidence](examples/physical-closure-evidence.example.yaml) and
+[recovery baseline](examples/recovery-baseline.example.yaml).

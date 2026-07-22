@@ -12,3 +12,9 @@ Worked examples for the proposed GENTILE and GTL functional engines:
 [`gentile-gtl-operational-request.md`](gentile-gtl-operational-request.md) ·
 [`gentile-gtl-configuration-evolution.md`](gentile-gtl-configuration-evolution.md) ·
 [`gentile-gtl-cyber-physical-action.md`](gentile-gtl-cyber-physical-action.md).
+Worked examples for the AGES-CPS profile
+([`../profiles/AGES-CPS/`](../profiles/AGES-CPS/README.md)):
+[`robotic-operational-inspection.md`](robotic-operational-inspection.md) ·
+[`robotic-calibration-evolution.md`](robotic-calibration-evolution.md) ·
+[`bounded-cyber-physical-action.md`](bounded-cyber-physical-action.md) ·
+[`fleet-model-deployment.md`](fleet-model-deployment.md).

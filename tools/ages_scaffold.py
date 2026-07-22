@@ -1178,6 +1178,210 @@ doc("examples/cyber-physical-system.md", "Example",
 
 
 # ============================================================================
+# profiles/ — application profiles (AGES-CPS)
+# ============================================================================
+
+doc("profiles/README.md", "Informative", "profiles/ — Application Profiles", """
+    Purpose: exploratory application profiles that apply the AGES paradigm
+    to specific engineering domains. A profile specialises AGES vocabulary,
+    models and lifecycle to a domain; it does not replace AGES, introduce a
+    parent paradigm, or claim that its domain is the exclusive AGES domain.
+    Contents: [`AGES-CPS/`](AGES-CPS/README.md) — AGES Profile for
+    Cyber-Physical and Robotic Systems.
+    """)
+
+doc("profiles/AGES-CPS/README.md", "Informative",
+    "AGES-CPS — AGES Profile for Cyber-Physical and Robotic Systems", """
+    An exploratory application profile of AGES for robotics and
+    cyber-physical systems. AGES remains the general paradigm; AGES-CPS is
+    not a middleware, controller, planner or safety standard. Contents:
+    [scope and positioning](01-scope-and-positioning.md) ·
+    [robotic system identity](02-robotic-system-identity.md) ·
+    [hardware–software co-baselines](03-hardware-software-co-baselines.md) ·
+    [multi-rate autonomy](04-multi-rate-autonomy.md) ·
+    [delegated operational envelopes](05-delegated-operational-envelopes.md) ·
+    [GENTILE and GTL for robotics](06-gentile-and-gtl-for-robotics.md) ·
+    [physical invariants](07-physical-invariants.md) ·
+    [irreversibility and recovery](08-irreversibility-and-recovery.md) ·
+    [digital–physical closure evidence](09-digital-physical-closure-evidence.md) ·
+    [fleet effectivity](10-fleet-effectivity.md) ·
+    [middleware integration](11-middleware-integration.md).
+    """)
+
+_CPS_DOCS = [
+    ("01-scope-and-positioning.md", "Scope and Positioning",
+     "Thesis, preserved AGES core, motivation for a robotics profile and "
+     "the relationship with robotics middleware."),
+    ("02-robotic-system-identity.md", "Robotic System Identity",
+     "Conceptual model of governed robotic identity: baseline, transition "
+     "history, invariants, effectivity and physical-state record."),
+    ("03-hardware-software-co-baselines.md", "Hardware–Software Co-Baselines",
+     "The robotic baseline as a possible hardware–software co-baseline and "
+     "the criteria that determine baseline impact."),
+    ("04-multi-rate-autonomy.md", "Multi-Rate Autonomy",
+     "Control, operation, adaptation and governance timescales; the "
+     "Evolution Control Plane outside the hard real-time path."),
+    ("05-delegated-operational-envelopes.md", "Delegated Operational Envelopes",
+     "The bounded runtime authority delegated in advance to the "
+     "Operational Plane."),
+    ("06-gentile-and-gtl-for-robotics.md", "GENTILE and GTL for Robotics",
+     "GENTILE and GTL applied to robotic intent negotiation and grounded "
+     "robotic action candidates."),
+    ("07-physical-invariants.md", "Physical Invariants",
+     "Physical properties, capability limits and safety boundaries that "
+     "must hold across transitions."),
+    ("08-irreversibility-and-recovery.md", "Irreversibility and Recovery",
+     "Rollback, compensation, safe-state transition, containment, recovery "
+     "baseline and declared irreversibility."),
+    ("09-digital-physical-closure-evidence.md",
+     "Digital–Physical Closure Evidence",
+     "Evidence connecting authorised action, recorded execution and "
+     "observed physical result."),
+    ("10-fleet-effectivity.md", "Fleet Effectivity",
+     "Fleet, cohort and instance effectivity for robotic candidates and "
+     "baselines."),
+    ("11-middleware-integration.md", "Middleware Integration",
+     "Relationship with ROS 2 and comparable middleware; adapters from GTL "
+     "candidates to executable robotic forms."),
+]
+for _rel, _title, _summary in _CPS_DOCS:
+    doc(f"profiles/AGES-CPS/{_rel}", "Informative", _title, f"""
+        {_summary}
+        Part of the AGES-CPS exploratory application profile
+        ([`README.md`](README.md)).
+        """)
+
+doc("models/robotic-identity-model.md", "Experimental model",
+    "Robotic Identity Model", """
+    Exploratory conceptual model of governed robotic identity for the
+    AGES-CPS profile
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)):
+    active baseline, ratified transition history, invariant set, active
+    effectivity and the relevant physical-state and provenance record.
+    A conceptual expression, not a complete mathematical theory.
+    """)
+
+doc("models/hardware-software-co-baseline-model.md", "Experimental model",
+    "Hardware–Software Co-Baseline Model", """
+    Exploratory sketch of the robotic co-baseline for the AGES-CPS profile
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)):
+    identity-relevant physical, electronic, firmware, software, model,
+    calibration, safety, authority and environmental configuration groups.
+    """)
+
+doc("models/multi-rate-autonomy-model.md", "Experimental model",
+    "Multi-Rate Autonomy Model", """
+    Exploratory timescale model for the AGES-CPS profile
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)):
+    control, operation, adaptation and governance rates, with the
+    Evolution Control Plane outside the hard real-time control path.
+    No universal timing values are prescribed.
+    """)
+
+add("schemas/examples/robotic-baseline.example.yaml", T("""
+    # ages:seed v@V@ — exploratory, non-normative example.
+    # Robotic hardware–software co-baseline; supersede with authored content.
+    baselineId: RB-0000
+    system: example-org/example-robot
+    class: hardware-software-co-baseline
+    status: seed
+    """))
+
+add("schemas/examples/delegated-operational-envelope.example.yaml", T("""
+    # ages:seed v@V@ — exploratory, non-normative example.
+    # Delegated operational envelope; supersede with authored content.
+    envelopeId: DOE-0000
+    baseline: RB-0000
+    status: seed
+    """))
+
+add("schemas/examples/robotic-action-candidate.example.yaml", T("""
+    # ages:seed v@V@ — exploratory, non-normative example.
+    # Robotic GTL action candidate; supersede with authored content.
+    actionCandidateId: RAC-0000
+    status: seed
+    """))
+
+add("schemas/examples/physical-closure-evidence.example.yaml", T("""
+    # ages:seed v@V@ — exploratory, non-normative example.
+    # Digital–physical closure evidence; supersede with authored content.
+    closureEvidenceId: PCE-0000
+    status: seed
+    """))
+
+add("schemas/examples/recovery-baseline.example.yaml", T("""
+    # ages:seed v@V@ — exploratory, non-normative example.
+    # Recovery baseline; supersede with authored content.
+    baselineId: RB-0000-R
+    class: recovery-baseline
+    status: seed
+    """))
+
+doc("examples/robotic-operational-inspection.md", "Example",
+    "Example — Robotic Operational Inspection", """
+    An operational AGES-CPS example: GENTILE clarifies an inspection
+    request, GTL produces a bounded inspection action, execution produces
+    closure evidence, and no baseline changes
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)).
+    """)
+
+doc("examples/robotic-calibration-evolution.md", "Example",
+    "Example — Robotic Calibration Evolution", """
+    An evolutionary AGES-CPS example: calibration drift creates a candidate
+    change, evidence is collected, deployment is instance-specific, closure
+    is verified and a successor baseline is ratified
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)).
+    """)
+
+doc("examples/bounded-cyber-physical-action.md", "Example",
+    "Example — Bounded Cyber-Physical Action and Safe-State Recovery", """
+    An AGES-CPS example: an execution deviation triggers an independent
+    safe state, evidence is collected, exact physical rollback is
+    impossible, compensation is applied and a recovery baseline is proposed
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)).
+    """)
+
+doc("examples/fleet-model-deployment.md", "Example",
+    "Example — Fleet Model Deployment", """
+    An AGES-CPS example: fleet evidence produces a perception-model
+    candidate, shadow-mode validation is performed, effectivity is
+    cohort-specific, rollback is declared and ratification is staged
+    ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)).
+    """)
+
+_CPS_RFCS = [
+    ("0012-ages-cps-profile.md",
+     "RFC-0012 — AGES-CPS: AGES Profile for Cyber-Physical and Robotic Systems",
+     "Proposes AGES-CPS as an exploratory application profile of AGES."),
+    ("0013-robotic-baseline-semantics.md",
+     "RFC-0013 — Robotic Baseline Semantics",
+     "Proposes hardware–software co-baseline semantics for robotic systems."),
+    ("0014-multi-rate-autonomy.md",
+     "RFC-0014 — Multi-Rate Autonomy",
+     "Proposes the multi-rate autonomy relation and envelope delegation."),
+    ("0015-physical-irreversibility.md",
+     "RFC-0015 — Physical Irreversibility",
+     "Proposes recovery modes and reversibility declarations for "
+     "cyber-physical transitions."),
+    ("0016-digital-physical-closure-evidence.md",
+     "RFC-0016 — Digital–Physical Closure Evidence",
+     "Proposes evidence connecting authorised action, execution and "
+     "physical result."),
+    ("0017-fleet-effectivity.md",
+     "RFC-0017 — Fleet Effectivity",
+     "Proposes fleet, cohort and instance effectivity semantics."),
+]
+for _rel, _title, _summary in _CPS_RFCS:
+    doc(f"rfcs/{_rel}", "RFC proposal", _title, f"""
+        {_summary}
+        Draft; not accepted. Part of the AGES-CPS exploratory application
+        profile
+        ([`../profiles/AGES-CPS/README.md`](../profiles/AGES-CPS/README.md)).
+        Process: [`0000-rfc-process.md`](0000-rfc-process.md).
+        """)
+
+
+# ============================================================================
 # tools/ and .github/
 # ============================================================================
 
