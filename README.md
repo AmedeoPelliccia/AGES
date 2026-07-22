@@ -122,7 +122,27 @@ arithmetic sum, and not a completed mathematical theory. The control
 plane is not part of the runtime datapath unless a specific
 implementation requires it.
 
-## 10. Governed continuity
+## 10. Proposed functional engines: GENTILE and GTL
+
+Two proposed functional engines are under exploration within AGES:
+
+| Engine | Primary transformation | Core question | Primary output |
+|---|---|---|---|
+| **GENTILE — Generative Engine for Neural Transformation through Interactive Language Exchange** | Intent and interactive language exchange → negotiated structured representation | What is intended? | Semantic or structural artefact |
+| **GTL — Generative Transitive Language** | Structured semantic artefact → grounded transitive action candidate | What operation could realise it? | Bounded and verifiable executable-action candidate |
+
+In the evolutionary case: intent → GENTILE → negotiated semantic
+artefact → GTL → grounded action candidate → validation and
+adjudication → authorised execution → closure evidence → ratified
+baseline. Operational uses of GENTILE and GTL do not necessarily create
+a new baseline. Neither engine is an authority: semantic agreement is
+not governance authorisation, and technical executability is not
+permission to execute. See
+[`architecture/06-GENTILE.md`](architecture/06-GENTILE.md),
+[`architecture/07-GTL.md`](architecture/07-GTL.md) and
+[`architecture/08-gentile-gtl-integration.md`](architecture/08-gentile-gtl-integration.md).
+
+## 11. Governed continuity
 
 System identity depends on the ability to reconstruct why and how each
 ratified state followed from the previous one: which candidate was
@@ -130,14 +150,14 @@ proposed, what evidence supported it, who authorised it, under which
 effectivity, and what would restore the predecessor. Continuity that
 cannot be reconstructed is not governed; it is merely history.
 
-## 11. AGES is not
+## 12. AGES is not
 
 AGES is not a foundation model, an AGI claim, a machine-learning
 framework, an autonomous agent platform, a biological theory of
 evolution, a single implementation, a certification authority, or a claim
 that unrestricted autonomous self-modification is desirable.
 
-## 12. AGES · AI-II · SAI-AUT-OS
+## 13. AGES · AI-II · SAI-AUT-OS
 
 | Level | Role | Question |
 |---|---|---|
@@ -150,21 +170,21 @@ the AI-II reference architecture nor the SAI-AUT-OS open standard is
 required to study, implement or conform to AGES — and the converse holds
 equally. See [`positioning/`](positioning/README.md).
 
-## 13. Repository map
+## 14. Repository map
 
 | Path | Contents |
 |---|---|
 | [`theory/`](theory/README.md) | Foundational theory: evolutive systems, identity, baselines, transitions, continuity, invariants |
-| [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, AI-II sketch |
+| [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, GENTILE, GTL, GENTILE–GTL integration, AI-II sketch |
 | [`models/`](models/README.md) | Minimal conceptual, temporal, transition and identity-continuity models |
-| [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects |
+| [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects, including GENTILE semantic artefact, GTL action candidate and closure evidence |
 | [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES |
 | [`research/`](research/README.md) | Open questions, terminological issues, bibliography |
-| [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions |
-| [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical |
+| [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENTILE, GTL and their integration lifecycle |
+| [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical; worked GENTILE–GTL examples |
 | [`tools/`](tools/README.md) | Deterministic repository generator (single source of truth for structure) |
 
-## 14. Current status
+## 15. Current status
 
 ```text
 Status: Exploratory research and pre-specification
@@ -173,7 +193,7 @@ Status: Exploratory research and pre-specification
 Terminology, formal models and boundaries are expected to evolve through
 RFCs ([`rfcs/0000-rfc-process.md`](rfcs/0000-rfc-process.md)).
 
-## 15. Open research questions
+## 16. Open research questions
 
 See [`research/open-questions.md`](research/open-questions.md). Among
 them: what establishes system identity across substantial change; which
@@ -187,7 +207,7 @@ replacement; whether one system may contain multiple asynchronous
 evolutionary timelines; and who authorises — and for how long — the
 operation of a deployed but not yet ratified configuration.
 
-## 16. Contributing
+## 17. Contributing
 
 Contributions are invited from systems engineering, AI architecture,
 configuration management, safety engineering, formal methods, software
@@ -198,7 +218,7 @@ governance, certification and lifecycle management. See
 Licensing is under review and will be declared before the first formal
 release ([`LICENSE`](LICENSE)).
 
-## 17. Closing statement
+## 18. Closing statement
 
 > **AGES treats artificial evolution not as uncontrolled change, but as
 > an engineered continuity of governed states.**

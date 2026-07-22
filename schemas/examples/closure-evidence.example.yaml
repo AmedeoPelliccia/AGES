@@ -1,0 +1,40 @@
+# ages:authored — Exploratory example. Non-normative.
+# Closure evidence — illustrative fields only; structures are expected to
+# change through RFCs (rfcs/0011-gentile-gtl-integration-lifecycle.md).
+closureEvidenceId: CE-0031
+actionCandidateId: AC-0107
+executionId: EX-2026-0602-77
+collectedAt: 2026-06-02T15:20:00Z
+
+observedState:
+  object: asset:HX-204
+  properties:
+    surface-condition-record: complete
+    coverage: "97%"
+
+declaredPostconditions:
+  - condition: "surface-condition-record == complete"
+    result: satisfied
+    evidenceReference: inspection-report://unit-2/hx-204/2026-06-02
+  - condition: "coverage >= 95%"
+    result: satisfied
+    evidenceReference: coverage-map://unit-2/hx-204/2026-06-02
+
+invariantResults:
+  - invariantId: INV-1
+    result: preserved
+
+executionOutcome:
+  status: completed
+  deviations: []
+  abortTriggered: false
+  compensationApplied: false
+
+integrity:
+  source: robot:inspection-crawler-03
+  hash: "sha256:e0d8b1..."
+  signature: "attestation://shift-supervisor/2026-06-02/ce-0031"
+
+ratificationRecommendation:
+  status: not-applicable
+  rationale: "Operational action under the current baseline; no candidate change and no new age."

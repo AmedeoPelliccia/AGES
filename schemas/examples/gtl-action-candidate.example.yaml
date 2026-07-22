@@ -1,0 +1,78 @@
+# ages:authored — Exploratory example. Non-normative.
+# GTL executable action candidate — illustrative fields only; structures
+# are expected to change through RFCs (rfcs/0010-gtl.md). A candidate is
+# not executable until validated, adjudicated and authorised.
+actionCandidateId: AC-0107
+sourceArtefact: SA-0042
+status: candidate
+
+executor:
+  id: robot:inspection-crawler-03
+  type: mobile-inspection-robot
+  delegatedAuthority: maintenance-inspection-policy@0.4.0
+
+operation:
+  verb: inspect
+  object: asset:HX-204
+  objectType: heat-exchanger
+  targetState: surface-condition-assessed
+
+context:
+  system: example-org/plant-maintenance-assistant
+  environment: unit-2-test-bay
+  operatingMode: maintenance-window
+
+preconditions:
+  - id: PRE-1
+    expression: "pressure(HX-204) == 0 bar(g)"
+    evidenceReference: sensor-log://unit-2/hx-204/pressure@2026-06-02
+  - id: PRE-2
+    expression: "lockout-tagout(HX-204) == active"
+    evidenceReference: permit://unit-2/loto-2026-0611
+
+limits:
+  temporal: "window 2026-06-02T12:00Z to 2026-06-02T16:00Z"
+  physical: "crawler speed <= 0.1 m/s; contact force <= 5 N"
+  computational: "on-board processing only; no remote actuation"
+  authority: "inspection only; no valve, switch or fastener operation"
+
+invariants:
+  - id: INV-1
+    expression: "plant safe-state envelope unchanged"
+
+expectedEffects:
+  - object: asset:HX-204
+    property: surface-condition-record
+    expectedValue: complete
+    tolerance: "full external surface, coverage >= 95%"
+
+failureBehaviour:
+  abortConditions:
+    - "loss of localisation for more than 5 s"
+    - "contact force above 5 N"
+  safeState: "crawler halted and anchored at nearest waypoint"
+  compensationAction: "manual retrieval by maintenance crew"
+  rollbackTarget: not-applicable-non-modifying-operation
+
+closureEvidence:
+  requiredSignals:
+    - photographic-record
+    - ultrasonic-thickness-map
+  verificationMethod: independent-review-by-shift-supervisor
+  tolerance: "thickness measurement uncertainty <= 0.1 mm"
+  timeout: PT4H
+  requiredAttestation: role:shift-supervisor
+
+effectivity:
+  organisations: [example-org]
+  programmes: [plant-maintenance]
+  products: [unit-2]
+  instances: [HX-204]
+  environments: [unit-2-test-bay]
+  validFrom: 2026-06-02T12:00:00Z
+  validUntil: 2026-06-02T16:00:00Z
+
+provenance:
+  generator: engine:gtl@0.1-exploratory
+  modelOrRuleVersion: gtl-grounding-rules@0.1.0
+  integrityHash: "sha256:5c17aa..."

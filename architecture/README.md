@@ -9,4 +9,7 @@ Purpose: architectural documents realising the theory. Contents:
 [evidence and authority](03-evidence-and-authority.md) ·
 [effectivity](04-effectivity.md) ·
 [identity and provenance](05-identity-and-provenance.md) ·
+[GENTILE](06-GENTILE.md) ·
+[GTL](07-GTL.md) ·
+[GENTILE–GTL integration](08-gentile-gtl-integration.md) ·
 [AI-II sketch](AI-II.md).

@@ -7,3 +7,6 @@ Purpose: govern changes to foundational definitions. Process:
 [`0000-rfc-process.md`](0000-rfc-process.md). Foundational changes
 require an RFC; editorial changes do not
 ([`../GOVERNANCE.md`](../GOVERNANCE.md)).
+Draft RFCs: [`0009-gentile.md`](0009-gentile.md) ·
+[`0010-gtl.md`](0010-gtl.md) ·
+[`0011-gentile-gtl-integration-lifecycle.md`](0011-gentile-gtl-integration-lifecycle.md).
