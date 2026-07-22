@@ -1,0 +1,24 @@
+# ages:seed v0.2.0
+name: Theory proposal
+description: Propose a change to AGES foundational theory (RFC candidate)
+labels: ["theory", "rfc-candidate"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What conceptual change is proposed, in a few sentences?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why the current formulation is insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Affected documents and terms
+      description: Which theory documents and glossary terms are affected?

@@ -1,0 +1,16 @@
+# ages:seed v0.2.0
+name: Architecture proposal
+description: Propose a change to AGES architectural documents
+labels: ["architecture"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: planes
+    attributes:
+      label: Affected planes and documents
+      description: Operational, Evolution, Evolution Control; which files?

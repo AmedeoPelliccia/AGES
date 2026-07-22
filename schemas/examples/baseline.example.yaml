@@ -1,0 +1,26 @@
+# ages:seed v0.2.0 — Exploratory example. Non-normative.
+baselineId: B-0003
+status: ratified
+ratifiedAt: 2026-05-11T09:30:00Z
+supersedes: B-0002
+systemIdentity: example-org/assistive-system
+configurationHash: "sha256:3f6a1c..."
+components:
+  - componentId: core-model
+    kind: foundation-model
+    stateRef: "model-registry://example/base-7b@rev-41"
+  - componentId: task-memory
+    kind: memory
+    stateRef: "memory-store://org-glossary@snapshot-19"
+  - componentId: analysis-tools
+    kind: tool-set
+    stateRef: "tool-manifest://assistant@m-0007"
+policies:
+  - policyId: change-policy-standard
+    version: 0.3.0
+effectivity:
+  environments: [production-eu]
+transitionRecord: T-0002
+provenance:
+  ratifiedBy: change-board
+  method: recorded-decision
