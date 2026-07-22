@@ -1,0 +1,20 @@
+# ages:seed v0.2.0 — Exploratory example. Non-normative.
+transitionId: T-0002
+sourceBaseline: B-0002
+candidateBaseline: B-0003
+changeSet:
+  - component: task-memory
+    change: snapshot-18 -> snapshot-19
+evidenceReferences: [EV-0104, EV-0105]
+validationResults:
+  regressionSuite: pass
+  driftCheck: within-declared-bounds
+authority:
+  adjudicatedBy: evolution-control-board
+  authorisedBy: change-board
+decision: authorised
+deploymentStatus: deployed
+ratificationStatus: ratified
+rollbackTarget: B-0002
+effectivity:
+  environments: [production-eu]

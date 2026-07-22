@@ -1,0 +1,22 @@
+# ages:seed v0.2.0
+name: Terminology proposal
+description: Propose, refine or contest a controlled term
+labels: ["terminology", "rfc-candidate"]
+body:
+  - type: input
+    id: term
+    attributes:
+      label: Term
+    validations:
+      required: true
+  - type: textarea
+    id: definition
+    attributes:
+      label: Proposed working definition
+    validations:
+      required: true
+  - type: textarea
+    id: conflicts
+    attributes:
+      label: Conflicts and overlaps
+      description: Existing glossary terms this interacts with.

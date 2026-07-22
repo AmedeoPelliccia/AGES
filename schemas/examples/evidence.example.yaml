@@ -1,0 +1,15 @@
+# ages:seed v0.2.0 — Exploratory example. Non-normative.
+evidenceId: EV-0104
+type: regression-suite
+source: validation-cluster-2
+collectedAt: 2026-05-10T16:00:00Z
+integrityHash: "sha256:9b41d0..."
+scope:
+  components: [task-memory]
+  environments: [staging-eu]
+results:
+  passed: 412
+  failed: 0
+limitations: >
+  Staging traffic profile only; production load characteristics were
+  not exercised.

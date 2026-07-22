@@ -1,0 +1,11 @@
+# ages:seed v0.2.0 — Exploratory example. Non-normative.
+effectivityId: EFF-0009
+organisations: [example-org]
+programmes: [assistive-systems]
+products: [assistive-system]
+instances: [prod-eu-01, prod-eu-02]
+jurisdictions: [EU]
+environments: [production-eu]
+lifecycleStages: [operation]
+validFrom: 2026-05-11T09:30:00Z
+validUntil: null
