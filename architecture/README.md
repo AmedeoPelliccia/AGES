@@ -13,3 +13,5 @@ Purpose: architectural documents realising the theory. Contents:
 [GTL](07-GTL.md) ·
 [GENTILE–GTL integration](08-gentile-gtl-integration.md) ·
 [AI-II sketch](AI-II.md).
+Domain application of this architecture to robotics and cyber-physical
+systems: [`../profiles/AGES-CPS/`](../profiles/AGES-CPS/README.md).

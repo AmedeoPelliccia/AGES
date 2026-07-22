@@ -1,0 +1,47 @@
+# ages:authored — Exploratory example. Non-normative.
+# Recovery baseline — illustrative fields only; structures are expected
+# to change through RFCs (rfcs/0015-physical-irreversibility.md). A
+# recovery baseline is ratified after an abnormal or partially
+# irreversible event; ratification follows evidence and closure
+# verification like any other baseline.
+baselineId: RB-0008-R
+system: example-org/warehouse-amr-014
+class: recovery-baseline
+status: proposed
+predecessor: RB-0007
+
+triggeringEvent:
+  id: EVT-0442
+  description: payload shift during transport caused controlled stop
+  safeStateEntered: stationary, load lowered, alarm raised
+  safeStateAuthority: runtime-safety-function  # independent of governance
+
+reversibilityAssessment:
+  reversibilityClass: partially-irreversible
+  rollbackFeasibility: configuration recoverable; physical displacement not
+  irreversibleEffects:
+    - container-C-88 partially displaced; contents reseated by operator
+  compensationApplied:
+    - manual reseating and inspection of contents
+    - route segment flagged for floor survey
+
+configuration:
+  basedOn: RB-0007
+  deltas:
+    - subject: parameter:payload-shift-threshold
+      change: tightened pending investigation
+    - subject: envelope:DOE-0021
+      change: transport of unsealed containers suspended
+
+recoveryAuthority: authority:fleet-configuration-board
+
+evidenceRequired:
+  - closure evidence for compensation actions
+  - post-event calibration verification
+  - incident report structured through GENTILE
+
+ratification:
+  criteria:
+    - compensation verified complete
+    - invariants INV-SAFE-01 and INV-SAFE-02 confirmed held
+  ratifiedBy: null  # pending

@@ -1,0 +1,82 @@
+# ages:authored — Exploratory example. Non-normative.
+# Robotic hardware–software co-baseline — illustrative fields only;
+# structures are expected to change through RFCs
+# (rfcs/0013-robotic-baseline-semantics.md). A baseline records what is
+# identity-relevant, not the complete physical world.
+baselineId: RB-0007
+system: example-org/warehouse-amr-014
+class: hardware-software-co-baseline
+status: ratified
+ratifiedBy: authority:fleet-configuration-board
+age: 7
+predecessor: RB-0006
+transition: RT-0006
+
+hardware:
+  platform: amr-chassis rev C
+  assemblies:
+    - id: asm:lift-module-02
+      revision: B
+  sensors:
+    - id: sensor:lidar-front
+      model: safety-lidar-x2
+      firmware: 4.1.2
+    - id: sensor:camera-mast
+      model: stereo-cam-m3
+      firmware: 2.0.5
+  actuators:
+    - id: act:drive-left
+      model: hub-motor-h7
+  computing:
+    - id: cpu:main
+      model: edge-compute-e5
+
+firmware:
+  - component: motor-controller
+    version: 3.2.0
+
+software:
+  packages:
+    - name: navigation-stack
+      version: 8.4.1
+    - name: task-executive
+      version: 2.9.0
+  runtimeTopology: launch:warehouse-standard@5
+
+models:
+  - id: model:perception-pallet
+    checksum: sha256:9c1e...
+    trainedOn: dataset:pallet-2026-04
+  - id: policy:docking
+    checksum: sha256:44ab...
+
+calibration:
+  - subject: sensor:lidar-front
+    reference: cal:lidar-front-2026-06-14
+  - subject: act:drive-left
+    reference: cal:odometry-2026-06-14
+
+safetyConstraints:
+  humanProximityStop: "0.5 m"
+  maxSpeedNearHumans: "0.3 m/s"
+  safetyEnvelope: envelope:warehouse-zone-a@3
+
+authorityConfiguration:
+  delegatedEnvelope: DOE-0021
+  permissions:
+    - transport-payload <= 150 kg
+    - no operation outside zone-a
+
+environmentalAssumptions:
+  map: map:warehouse-a@12
+  floorClass: industrial-flat
+  operatingTemperature: "0..40 C"
+
+effectivity:
+  instance: robot:amr-014
+  facility: warehouse-a
+  cohort: cohort:amr-rev-c
+
+invariants:
+  - INV-SAFE-01: emergency stop independent of learned components
+  - INV-SAFE-02: human safety zones enforced at runtime

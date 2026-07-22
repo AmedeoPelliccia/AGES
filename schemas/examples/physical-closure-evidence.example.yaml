@@ -1,0 +1,42 @@
+# ages:authored — Exploratory example. Non-normative.
+# Digital–physical closure evidence — illustrative fields only;
+# structures are expected to change through RFCs
+# (rfcs/0016-digital-physical-closure-evidence.md). Telemetry volume
+# alone is not evidentiary sufficiency.
+closureEvidenceId: PCE-0311
+actionCandidate: RAC-0311
+authorisation: AUTH-0311
+baseline: RB-0007
+status: closed
+
+establishes:
+  actionExecuted: true
+  withinAuthorisedEnvelope: true
+  targetStateAchieved: true
+  invariantsHeld: true
+  deviationsOccurred: false
+  fallbackActivated: false
+  configurationMatchesCandidate: not-applicable  # operational action
+  ratificationCriteriaSatisfied: not-applicable  # no baseline change
+
+evidence:
+  actuatorFeedback:
+    - drive-torque trace 2026-06-15T10:02Z..10:14Z
+  sensorMeasurements:
+    - separation-distance history, min observed 1.3 m
+  poseEstimates:
+    - destination pose error 2.1 cm, 0.4 deg
+  forceTorqueData:
+    - grip force peak 31 N
+  deployedArtefactIdentifiers: []
+  hardwareIdentity: robot:amr-014 verified at task start
+  calibrationVerification: cal:odometry-2026-06-14 valid
+  operatorAttestation:
+    - operator:badge-1174 confirmed container placement
+  postActionTests: []
+
+deviations: []
+
+assessment:
+  assessor: service:closure-verifier@1.2
+  outcome: operational closure achieved; no baseline impact
