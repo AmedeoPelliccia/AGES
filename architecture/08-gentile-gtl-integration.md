@@ -14,7 +14,7 @@ pre-specification; the lifecycle is governed through
 | Engine | Primary transformation | Core question | Primary output |
 |---|---|---|---|
 | GENTILE | Intent and interactive language exchange → negotiated structured representation | What is intended? | Semantic or structural artefact |
-| GTL | Structured semantic artefact → grounded transitive action candidate | What operation could realise it? | Bounded and verifiable executable-action candidate |
+| GTL | Structured semantic artefact → grounded transitive action candidate | What operation could realise it? | Technically executable, not-yet-authorised action candidate |
 
 The concise relationship:
 
@@ -167,7 +167,8 @@ $$
 
 Where: $S$ is the semantic artefact; $O$ is the identified direct
 object; $E$ is the assigned executor; $K$ is the set of operational
-constraints; $A_c$ is an executable action candidate.
+constraints; $A_c$ is a technically executable, not-yet-authorised
+action candidate.
 
 For an evolutionary transition:
 

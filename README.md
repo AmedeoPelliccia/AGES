@@ -108,9 +108,16 @@ flowchart TB
     subgraph CP["Evolution Control Plane"]
         ADJ[Policy, authority, evidence adjudication, ratification, ledger, rollback control]
     end
-    OP --> GEN
-    GEN --> ADJ
-    ADJ -->|authorised transitions| OP
+    EX["Authorised execution"]
+    CE["Closure evidence"]
+    BR["Baseline ratification"]
+    OP -->|observations| GEN
+    GEN -->|candidate and evidence| ADJ
+    ADJ -->|authorisation| EX
+    EX --> OP
+    OP --> CE
+    CE --> ADJ
+    ADJ --> BR
 ```
 
 $$
@@ -129,15 +136,45 @@ Two proposed functional engines are under exploration within AGES:
 | Engine | Primary transformation | Core question | Primary output |
 |---|---|---|---|
 | **GENTILE — Generative Engine for Neural Transformation through Interactive Language Exchange** | Intent and interactive language exchange → negotiated structured representation | What is intended? | Semantic or structural artefact |
-| **GTL — Generative Transitive Language** | Structured semantic artefact → grounded transitive action candidate | What operation could realise it? | Bounded and verifiable executable-action candidate |
+| **GTL — Generative Transitive Language** | Structured semantic artefact → grounded transitive action candidate | What operation could realise it? | Technically executable, not-yet-authorised action candidate |
+
+The term *Neural* identifies GENTILE's principal AI-oriented
+implementation domain; it does not prescribe an exclusively neural
+implementation. GENTILE-compatible engines may be neural, symbolic,
+neuro-symbolic, rule-based or human-in-the-loop, provided that they
+preserve interactive co-construction, provenance and structured
+semantic closure.
 
 In the evolutionary case: intent → GENTILE → negotiated semantic
-artefact → GTL → grounded action candidate → validation and
-adjudication → authorised execution → closure evidence → ratified
-baseline. Operational uses of GENTILE and GTL do not necessarily create
-a new baseline. Neither engine is an authority: semantic agreement is
-not governance authorisation, and technical executability is not
-permission to execute. See
+artefact → intent classification → candidate change → GTL → grounded
+action candidate → validation and adjudication → authorised execution →
+closure evidence → ratified baseline. The candidate change carries
+governance metadata — baseline source, expected baseline impact,
+affected invariants, effectivity, authority requirements, evidence plan
+and rollback target — that does not necessarily belong to the semantic
+artefact itself. Operational uses of GENTILE and GTL do not necessarily
+create a new baseline. Neither engine is an authority: semantic
+agreement is not governance authorisation, and technical executability
+is not permission to execute.
+
+As a conceptual sketch, not a completed mathematical definition:
+
+$$
+S = \mathrm{GENTILE}(I, C, X)
+$$
+
+$$
+A_c = \mathrm{GTL}(S, O, E, K)
+$$
+
+Where: $I$ is declared intent; $C$ is contextual information; $X$ is
+the interactive exchange history; $S$ is the negotiated semantic
+artefact; $O$ is the identified direct object; $E$ is the assigned
+executor; $K$ is the set of operational constraints; $A_c$ is the
+grounded action candidate. GENTILE co-constructs what is meant; GTL
+specifies how that meaning could be grounded into a bounded operation;
+AGES determines how such operations participate in the governed
+continuity of an artificial system. See
 [`architecture/06-GENTILE.md`](architecture/06-GENTILE.md),
 [`architecture/07-GTL.md`](architecture/07-GTL.md) and
 [`architecture/08-gentile-gtl-integration.md`](architecture/08-gentile-gtl-integration.md).

@@ -21,6 +21,13 @@ The core question answered by GENTILE is:
 > **What is intended, and how can that intent be represented in a
 > shared, structured and reviewable form?**
 
+The term *Neural* in the long form identifies GENTILE's principal
+AI-oriented implementation domain; it does not prescribe an exclusively
+neural implementation. GENTILE-compatible engines may be neural,
+symbolic, neuro-symbolic, rule-based or human-in-the-loop, provided
+that they preserve interactive co-construction, provenance and
+structured semantic closure.
+
 Its function is not limited to parsing or one-way language generation.
 GENTILE supports a co-constructive process in which the involved human
 and artificial participants may progressively:
