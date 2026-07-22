@@ -18,3 +18,31 @@
     timelines?
 11. Who authorises — and for how long — the operation of a deployed but
     not yet ratified configuration (the probation window)?
+
+Questions raised by the proposed GENTILE and GTL functional engines
+([`../architecture/08-gentile-gtl-integration.md`](../architecture/08-gentile-gtl-integration.md)):
+
+12. What constitutes sufficient semantic closure?
+13. Can a semantic artefact be valid while participants retain
+    conflicting interpretations?
+14. How should rejected interpretations be preserved?
+15. Which intent classes require human confirmation?
+16. When does an operational intent become an evolutionary intent?
+17. Can GENTILE generate governance artefacts without becoming part of
+    the authority chain?
+18. How should GTL represent actions affecting multiple direct objects?
+19. How should concurrent actions and dependencies be expressed?
+20. Can GTL support atomic, transactional and compensating semantics?
+21. How should physically irreversible actions be represented?
+22. What degree of formal verification is required for each GTL
+    profile?
+23. How can neural generation be separated from deterministic GTL
+    validation?
+24. How should uncertainty propagate from GENTILE into GTL?
+25. Can alternative GTL candidates be authorised as a bounded set?
+26. How are closure-evidence requirements derived from semantic
+    acceptance criteria?
+27. When does an authorised execution create a new AGES age?
+28. Can a failed action produce a valid recovery baseline?
+29. How should human, organisational and delegated machine authority
+    be combined?

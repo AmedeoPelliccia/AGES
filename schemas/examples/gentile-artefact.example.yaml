@@ -1,0 +1,57 @@
+# ages:authored — Exploratory example. Non-normative.
+# GENTILE semantic artefact — illustrative fields only; structures are
+# expected to change through RFCs (rfcs/0009-gentile.md).
+artefactId: SA-0042
+artefactClass: operational-intent
+status: semantically-closed
+createdAt: 2026-06-02T10:15:00Z
+
+intent:
+  source: human:maintenance-operator-17
+  statement: "Inspect heat-exchanger HX-204 for surface corrosion."
+  objective: "Establish current surface condition before scheduled overhaul."
+  rationale: "Visual anomaly reported during routine walk-down."
+
+interaction:
+  participants:
+    - human:maintenance-operator-17
+    - engine:gentile@0.1-exploratory
+  exchangeReferences:
+    - dialogue-log://maintenance/2026-06-02/session-88
+  revisions: 3
+  rejectedInterpretations:
+    - "Inspect all heat exchangers in unit 2 (too broad; rejected by operator)"
+
+context:
+  system: example-org/plant-maintenance-assistant
+  environment: unit-2-test-bay
+  lifecycleStage: in-service
+
+semantics:
+  controlledTerms: [inspection, direct-object, closure-evidence]
+  assumptions:
+    - "HX-204 is depressurised during the inspection window."
+  constraints:
+    - "No disassembly; visual and ultrasonic measurement only."
+  invariants:
+    - "Plant safe-state envelope remains unchanged."
+  unresolvedAmbiguities: []
+  acceptanceCriteria:
+    - "Surface-condition report with photographic and thickness evidence."
+
+authority:
+  declaredBy: human:maintenance-operator-17
+  authorityClaims:
+    - "Routine inspection within delegated maintenance authority."
+  requiredReviewers:
+    - role:shift-supervisor
+
+classification:
+  type: operational-intent
+  evolutionaryImpact: none
+  baselineImpact: none
+
+provenance:
+  sourceRecords:
+    - dialogue-log://maintenance/2026-06-02/session-88
+  integrityHash: "sha256:9b2e44..."

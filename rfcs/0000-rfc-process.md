@@ -25,3 +25,12 @@ Superseded.
 0007 — AI-II reference architecture
 0008 — Relationship with SAI-AUT-OS
 ```
+
+**Draft RFCs** (proposed, not adjudicated):
+
+```text
+0009 — GENTILE: Generative Engine for Neural Transformation
+       through Interactive Language Exchange
+0010 — GTL: Generative Transitive Language
+0011 — GENTILE–GTL integration lifecycle
+```
