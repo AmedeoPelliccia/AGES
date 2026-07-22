@@ -24,3 +24,21 @@ transitionRecord: T-0002
 provenance:
   ratifiedBy: change-board
   method: recorded-decision
+# Non-normative: a baseline may bind references to external immutable
+# records without embedding their content. All identifiers below are
+# illustrative; no specific tool (including Git) is required.
+# See positioning/ages-vs-version-control.md.
+artefactReferences:
+  sourceRepository:
+    provider: git
+    repository: example-repository
+    commit: illustrative-commit-id
+  modelRegistry:
+    modelId: example-model
+    checkpointId: illustrative-checkpoint
+  evidenceSystem:
+    evidencePackageId: EP-0042
+  hardwareConfiguration:
+    manifestId: HW-MANIFEST-0017
+  policyStore:
+    policyBaselineId: POLICY-BL-0009

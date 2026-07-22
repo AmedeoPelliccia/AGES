@@ -16,3 +16,6 @@ transitions of the invariant set itself.
 partial record loss; progressive replacement of identity anchors.
 
 **Related.** [`../theory/02-system-identity.md`](../theory/02-system-identity.md)
+·
+[`../positioning/ages-vs-version-control.md`](../positioning/ages-vs-version-control.md)
+(identity chains contrasted with artefact revision graphs)

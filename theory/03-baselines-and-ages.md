@@ -32,4 +32,6 @@ effectivities?
 **Unresolved issues.** Granularity thresholds; concurrent ages.
 
 **Related.** [`04-evolution-transitions.md`](04-evolution-transitions.md)
-· [`../models/temporal-model.md`](../models/temporal-model.md)
+· [`../models/temporal-model.md`](../models/temporal-model.md) ·
+[`../positioning/ages-vs-version-control.md`](../positioning/ages-vs-version-control.md)
+(how a whole-system baseline relates to commits and checkpoints)

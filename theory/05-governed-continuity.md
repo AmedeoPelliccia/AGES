@@ -25,3 +25,6 @@ changes; continuity under partial record loss.
 
 **Related.** [`02-system-identity.md`](02-system-identity.md) ·
 [`../models/identity-continuity-model.md`](../models/identity-continuity-model.md)
+·
+[`../positioning/ages-vs-version-control.md`](../positioning/ages-vs-version-control.md)
+(governed continuity contrasted with a revision graph)

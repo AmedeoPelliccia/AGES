@@ -22,3 +22,7 @@ candidate; rollback after ratification opens a new age.
 
 **Key question.** Who authorises, and for how long, the operation of a
 deployed but unratified configuration?
+
+**Related.**
+[`../positioning/ages-vs-version-control.md`](../positioning/ages-vs-version-control.md)
+(why a commit or checkpoint is not, by itself, a ratified transition)
