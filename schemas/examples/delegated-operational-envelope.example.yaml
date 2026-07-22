@@ -1,0 +1,50 @@
+# ages:authored — Exploratory example. Non-normative.
+# Delegated operational envelope — illustrative fields only; structures
+# are expected to change through RFCs. Actions inside the envelope do
+# not automatically create a new baseline; changes to the envelope
+# itself may require evolution governance.
+envelopeId: DOE-0021
+baseline: RB-0007
+grantedBy: authority:fleet-configuration-board
+status: active
+
+scope:
+  executor: robot:amr-014
+  taskClasses:
+    - transport
+    - inspection
+  geographicZone: warehouse-a/zone-a
+  environmentalConditions:
+    lighting: ">= 100 lux"
+    floor: dry
+
+limits:
+  position: within zone-a boundary polygon
+  velocity: "<= 1.5 m/s; <= 0.3 m/s within 2.0 m of humans"
+  acceleration: "<= 0.8 m/s^2"
+  force: "lift contact force <= 50 N"
+  torque: "drive torque <= rated continuous"
+  energy: "battery reserve >= 15%"
+  humanProximity: "stop within 0.5 m"
+  latency: "safety loop <= 10 ms"
+  modelConfidence: "pallet detection >= 0.9 or request assistance"
+
+adaptation:
+  permittedParameters:
+    - name: odometry-drift-correction
+      range: "+/- 2%"
+    - name: docking-approach-speed
+      range: "0.05..0.20 m/s"
+  boundedLearning: none
+
+authority:
+  duration: "2026-06-14T00:00Z to 2026-09-14T00:00Z"
+  revocableBy: authority:fleet-configuration-board
+  escalation: request evolutionary authorisation for out-of-envelope needs
+
+fallback:
+  permittedActions:
+    - controlled stop
+    - return-to-dock
+    - request human assistance
+  safeState: stationary, brakes engaged, alarm raised

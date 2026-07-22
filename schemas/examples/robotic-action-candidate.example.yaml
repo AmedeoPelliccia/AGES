@@ -1,0 +1,79 @@
+# ages:authored — Exploratory example. Non-normative.
+# Robotic GTL action candidate — illustrative fields only; structures
+# are expected to change through RFCs (rfcs/0010-gtl.md). A candidate is
+# not a motor-control signal, not permission to execute, not an
+# evolution transition and not a ratified baseline.
+actionCandidateId: RAC-0311
+sourceArtefact: SA-0290
+status: candidate
+class: operational
+
+executor:
+  id: robot:amr-014
+  type: autonomous-mobile-robot
+  authorityReference: DOE-0021
+
+operation:
+  verb: transport
+  object: asset:container-C-88
+  objectType: standard-container
+  targetState: container at staging-bay-3, pose within tolerance
+
+context:
+  baseline: RB-0007
+  environment: warehouse-a/zone-a
+  operatingMode: normal-operations
+  relevantHumans:
+    - operator:badge-1174
+
+preconditions:
+  - id: PRE-1
+    expression: "payload(container-C-88) <= 150 kg"
+  - id: PRE-2
+    expression: "route(zone-a to staging-bay-3) clear per current map"
+
+limits:
+  velocity: "<= 0.3 m/s within 2.0 m of operator:badge-1174"
+  separation: ">= 1.0 m from operator:badge-1174"
+  force: "grip force <= 40 N"
+  temporal: "complete within 15 min"
+
+safetyInvariants:
+  - INV-SAFE-01
+  - INV-SAFE-02
+
+expectedEffects:
+  - object: asset:container-C-88
+    property: location
+    expectedValue: staging-bay-3
+    tolerance: "pose within +/- 5 cm, +/- 2 deg"
+
+failureConditions:
+  - payload shift detected
+  - localisation confidence below threshold
+
+abortConditions:
+  - human enters 0.5 m stop zone
+  - grip feedback loss > 500 ms
+
+safeState: controlled stop, load lowered, alarm raised
+
+compensation:
+  strategy: return container to origin if transit incomplete
+  rollback: not applicable to physical displacement already performed
+
+closureEvidence:
+  required:
+    - pose estimate at destination
+    - force and grip trace
+    - separation-distance history
+    - task-executive log
+
+effectivity:
+  instance: robot:amr-014
+  facility: warehouse-a
+
+provenance:
+  gentileArtefact: SA-0290
+  negotiatedWith: operator:badge-1174
+  unresolvedAmbiguity: none declared
