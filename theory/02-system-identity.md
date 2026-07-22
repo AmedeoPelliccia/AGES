@@ -23,3 +23,6 @@ identity across forks (see branching, in
 **Related.** [`05-governed-continuity.md`](05-governed-continuity.md) ·
 [`06-evolutionary-invariants.md`](06-evolutionary-invariants.md) ·
 [`../models/identity-continuity-model.md`](../models/identity-continuity-model.md)
+·
+[`../positioning/ages-vs-version-control.md`](../positioning/ages-vs-version-control.md)
+(why identity is broader than an artefact revision graph)

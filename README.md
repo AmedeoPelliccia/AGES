@@ -187,6 +187,19 @@ proposed, what evidence supported it, who authorised it, under which
 effectivity, and what would restore the predecessor. Continuity that
 cannot be reconstructed is not governed; it is merely history.
 
+### Beyond conventional version control
+
+Conventional version control can identify revisions of digital
+artefacts, while model checkpoints identify selected computational
+states. AGES addresses the broader identity of the governed system by
+binding those records, together with authority, policies, evidence,
+effectivity and relevant physical configuration, into ratified baselines
+and reconstructable transitions. In this sense, AGES may be understood
+as **constitutional version control for artificial systems** — an
+architectural analogy, not a source-control implementation and not a
+replacement for Git. See
+[`positioning/ages-vs-version-control.md`](positioning/ages-vs-version-control.md).
+
 ## 12. AGES is not
 
 AGES is not a foundation model, an AGI claim, a machine-learning
@@ -233,7 +246,7 @@ replaces neither robotics middleware nor runtime safety mechanisms.
 | [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, GENTILE, GTL, GENTILE–GTL integration, AI-II sketch |
 | [`models/`](models/README.md) | Minimal conceptual, temporal, transition and identity-continuity models |
 | [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects, including GENTILE semantic artefact, GTL action candidate and closure evidence |
-| [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES |
+| [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES; AGES vs. conventional version control and model checkpoints |
 | [`profiles/`](profiles/README.md) | Application profiles; AGES-CPS — exploratory profile for cyber-physical and robotic systems |
 | [`research/`](research/README.md) | Open questions, terminological issues, bibliography |
 | [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENTILE, GTL and their integration lifecycle; draft AGES-CPS RFCs |
