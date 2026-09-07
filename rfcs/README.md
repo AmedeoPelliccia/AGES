@@ -9,7 +9,8 @@ require an RFC; editorial changes do not
 ([`../GOVERNANCE.md`](../GOVERNANCE.md)).
 Draft RFCs: [`0009-gentile.md`](0009-gentile.md) ·
 [`0010-gtl.md`](0010-gtl.md) ·
-[`0011-gentile-gtl-integration-lifecycle.md`](0011-gentile-gtl-integration-lifecycle.md).
+[`0011-gentile-gtl-integration-lifecycle.md`](0011-gentile-gtl-integration-lifecycle.md) ·
+[`0018-geniuss.md`](0018-geniuss.md).
 Draft RFCs for the AGES-CPS profile
 ([`../profiles/AGES-CPS/`](../profiles/AGES-CPS/README.md)):
 [`0012-ages-cps-profile.md`](0012-ages-cps-profile.md) ·

@@ -129,21 +129,33 @@ arithmetic sum, and not a completed mathematical theory. The control
 plane is not part of the runtime datapath unless a specific
 implementation requires it.
 
-## 10. Proposed functional engines: GENTILE and GTL
+## 10. Proposed functional engines: GENIUSS, GENTILE and GTL
 
-Two proposed functional engines are under exploration within AGES:
+Three proposed functional engines are under exploration within AGES:
 
 | Engine | Primary transformation | Core question | Primary output |
 |---|---|---|---|
+| **GENIUSS — Graph Engine for Neural Integration and Understanding of Semantic Structures** | Heterogeneous contextual input → integrated semantic structure | What does this input mean in the current context? | Contextualised semantic structure with entities, relations, hypotheses and confidence |
 | **GENTILE — Generative Engine for Neural Transformation through Interactive Language Exchange** | Intent and interactive language exchange → negotiated structured representation | What is intended? | Semantic or structural artefact |
 | **GTL — Generative Transitive Language** | Structured semantic artefact → grounded transitive action candidate | What operation could realise it? | Technically executable, not-yet-authorised action candidate |
 
-The term *Neural* identifies GENTILE's principal AI-oriented
-implementation domain; it does not prescribe an exclusively neural
-implementation. GENTILE-compatible engines may be neural, symbolic,
+The term *Neural* identifies the principal AI-oriented implementation
+domain of GENIUSS and GENTILE; it does not prescribe an exclusively
+neural implementation. Compatible engines may be neural, symbolic,
 neuro-symbolic, rule-based or human-in-the-loop, provided that they
-preserve interactive co-construction, provenance and structured
-semantic closure.
+preserve — for GENTILE — interactive co-construction, provenance and
+structured semantic closure, and — for GENIUSS — explicit entities,
+relations, confidence, competing hypotheses and traceability to source
+observations. GENIUSS is a cognitive and semantic integration engine,
+not a graphical rendering engine; it implements computational
+contextual understanding and the architecture makes no claim of machine
+consciousness or sentience.
+
+Where inputs are heterogeneous — sensors, telemetry, events, messages,
+history — GENIUSS interprets them before intent is negotiated:
+observations and context → GENIUSS → contextual semantic structure →
+GENTILE. Understanding an input is not the same as determining what an
+actor intends.
 
 In the evolutionary case: intent → GENTILE → negotiated semantic
 artefact → intent classification → candidate change → GTL → grounded
@@ -160,6 +172,10 @@ is not permission to execute.
 As a conceptual sketch, not a completed mathematical definition:
 
 $$
+\Sigma(t) = \mathrm{GENIUSS}\big(X(t),\ \Sigma(t-1),\ C(t)\big)
+$$
+
+$$
 S = \mathrm{GENTILE}(I, C, X)
 $$
 
@@ -167,14 +183,18 @@ $$
 A_c = \mathrm{GTL}(S, O, E, K)
 $$
 
-Where: $I$ is declared intent; $C$ is contextual information; $X$ is
+Where: $X(t)$ is the heterogeneous input available at time $t$;
+$\Sigma(t)$ is the resulting contextual semantic structure, which may be
+conditioned by the prior structure $\Sigma(t-1)$; $I$ is declared intent; $C$ is contextual information; $X$ is
 the interactive exchange history; $S$ is the negotiated semantic
 artefact; $O$ is the identified direct object; $E$ is the assigned
 executor; $K$ is the set of operational constraints; $A_c$ is the
-grounded action candidate. GENTILE co-constructs what is meant; GTL
+grounded action candidate. GENIUSS integrates what an input means in
+context; GENTILE co-constructs what is meant; GTL
 specifies how that meaning could be grounded into a bounded operation;
 AGES determines how such operations participate in the governed
 continuity of an artificial system. See
+[`architecture/12-GENIUSS.md`](architecture/12-GENIUSS.md),
 [`architecture/06-GENTILE.md`](architecture/06-GENTILE.md),
 [`architecture/07-GTL.md`](architecture/07-GTL.md) and
 [`architecture/08-gentile-gtl-integration.md`](architecture/08-gentile-gtl-integration.md).
@@ -243,14 +263,14 @@ replaces neither robotics middleware nor runtime safety mechanisms.
 | Path | Contents |
 |---|---|
 | [`theory/`](theory/README.md) | Foundational theory: evolutive systems, identity, baselines, transitions, continuity, invariants |
-| [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, GENTILE, GTL, GENTILE–GTL integration, AI-II sketch |
+| [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, GENIUSS, GENTILE, GTL, GENTILE–GTL integration, AI-II sketch |
 | [`models/`](models/README.md) | Minimal conceptual, temporal, transition and identity-continuity models |
-| [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects, including GENTILE semantic artefact, GTL action candidate and closure evidence |
+| [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects, including GENIUSS semantic structure, GENTILE semantic artefact, GTL action candidate and closure evidence |
 | [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES; AGES vs. conventional version control and model checkpoints |
 | [`profiles/`](profiles/README.md) | Application profiles; AGES-CPS — exploratory profile for cyber-physical and robotic systems |
 | [`research/`](research/README.md) | Open questions, terminological issues, bibliography |
-| [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENTILE, GTL and their integration lifecycle; draft AGES-CPS RFCs |
-| [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical; worked GENTILE–GTL examples; AGES-CPS robotic examples |
+| [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENIUSS, GENTILE, GTL and their integration lifecycle; draft AGES-CPS RFCs |
+| [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical; worked GENIUSS, GENTILE and GTL examples; AGES-CPS robotic examples |
 | [`tools/`](tools/README.md) | Deterministic repository generator (single source of truth for structure) |
 
 ## 16. Current status

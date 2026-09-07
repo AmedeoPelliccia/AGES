@@ -308,6 +308,11 @@ A precondition should identify:
 
 A precondition that has not been evaluated must not be assumed true.
 
+Where a precondition rests on an interpretation supplied by
+[GENIUSS](12-GENIUSS.md) rather than on a direct measurement, the candidate
+should record the dependency, its confidence and the verification required
+before execution. An inference is not a fact.
+
 ## 9. Operational envelope
 
 The **operational envelope** is the explicit set of limits within which the
@@ -936,6 +941,7 @@ See:
 
 - [`06-GENTILE.md`](06-GENTILE.md)
 - [`08-gentile-gtl-integration.md`](08-gentile-gtl-integration.md)
+- [`12-GENIUSS.md`](12-GENIUSS.md)
 
 ## 30. Example: bounded robotic action
 
