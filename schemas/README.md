@@ -8,10 +8,11 @@ Nothing in this directory is a specification: field names, structures
 and values are exploratory and expected to change through RFCs.
 Contents: [`examples/`](examples/baseline.example.yaml) — baseline,
 transition, evidence, effectivity;
+[GENIUSS semantic structure](examples/geniuss-semantic-structure.example.yaml),
 [GENTILE semantic artefact](examples/gentile-artefact.example.yaml),
 [GTL action candidate](examples/gtl-action-candidate.example.yaml) and
 [closure evidence](examples/closure-evidence.example.yaml) for the
-proposed GENTILE and GTL functional engines.
+proposed GENIUSS, GENTILE and GTL functional engines.
 Illustrative examples for the AGES-CPS profile
 ([`../profiles/AGES-CPS/`](../profiles/AGES-CPS/README.md)):
 [robotic baseline](examples/robotic-baseline.example.yaml),

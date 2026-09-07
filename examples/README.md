@@ -8,7 +8,9 @@ engineered system. Contents:
 [`ai-centred-system.md`](ai-centred-system.md) ·
 [`aerospace-system.md`](aerospace-system.md) ·
 [`cyber-physical-system.md`](cyber-physical-system.md).
-Worked examples for the proposed GENTILE and GTL functional engines:
+Worked examples for the proposed GENIUSS, GENTILE and GTL functional
+engines:
+[`geniuss-gentile-gtl-governance.md`](geniuss-gentile-gtl-governance.md) ·
 [`gentile-gtl-operational-request.md`](gentile-gtl-operational-request.md) ·
 [`gentile-gtl-configuration-evolution.md`](gentile-gtl-configuration-evolution.md) ·
 [`gentile-gtl-cyber-physical-action.md`](gentile-gtl-cyber-physical-action.md).

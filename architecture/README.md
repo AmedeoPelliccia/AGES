@@ -70,6 +70,11 @@ What is the system permitted to become?
 | 9 | [`09-learning-mechanics.md`](09-learning-mechanics.md) | Defines Learning Packs, learning signals and evolution triggers |
 | 10 | [`10-SAI-AUT-OS.md`](10-SAI-AUT-OS.md) | Defines the operational Evolution Control Plane |
 | 11 | [`AI-II.md`](AI-II.md) | Defines the interoperability and infrastructure reference architecture |
+| 12 | [`12-GENIUSS.md`](12-GENIUSS.md) | Defines contextual semantic integration upstream of intent |
+
+Document numbers reflect authoring order, not the order of the information
+flow. In the information flow, GENIUSS precedes GENTILE: interpretation of
+heterogeneous input precedes the negotiation of intent.
 
 ## 3. Architectural map
 
@@ -83,6 +88,7 @@ flowchart TB
     EFF["04 — Effectivity"]
     IDP["05 — Identity and Provenance"]
 
+    GENI["12 — GENIUSS"]
     GENT["06 — GENTILE"]
     GTL["07 — GTL"]
     INT["08 — GENTILE–GTL Integration"]
@@ -97,8 +103,11 @@ flowchart TB
     EVID --> EFF
     EFF --> IDP
 
+    PLANES --> GENI
     PLANES --> GENT
     PLANES --> GTL
+    GENI --> GENT
+    GENI --> GTL
     GENT --> INT
     GTL --> INT
 
@@ -257,7 +266,41 @@ Possible contents include:
 
 SAI-AUT-OS operationalises this plane.
 
-## 7. GENTILE and GTL
+## 7. GENIUSS, GENTILE and GTL
+
+The three proposed functional engines answer three different questions, and
+AGES governance answers a fourth:
+
+```text
+GENIUSS  What does this input mean in the current context?
+GENTILE  What is intended?
+GTL      What operation could realise the intended state?
+AGES     Is the candidate operation admissible and authorised?
+```
+
+### GENIUSS
+
+**GENIUSS — Graph Engine for Neural Integration and Understanding of Semantic
+Structures**
+
+GENIUSS transforms heterogeneous observations, current context and prior
+semantic state into a contextualised semantic structure: entities, relations,
+roles, attributes, confidence, hypotheses and temporal state.
+
+> **GENIUSS integrates meaning.**
+
+It does not:
+
+- negotiate intent;
+- authorise actions;
+- execute actions;
+- decide policy;
+- convert uncertain interpretation into false certainty.
+
+GENIUSS is a cognitive and semantic integration engine, not a graphical
+rendering engine or user-interface component, and the architecture makes no
+claim of machine consciousness or sentience
+([`12-GENIUSS.md`](12-GENIUSS.md)).
 
 ### GENTILE
 
@@ -543,12 +586,13 @@ repository generator or scaffold source of truth.
 | 03 Evidence and Authority | Transition model | Adjudication and control-plane design |
 | 04 Effectivity | Transition and authority | Validation, deployment, baseline identity |
 | 05 Identity and Provenance | Baselines, transitions, effectivity | Ledger, ratification, reconstructability |
-| 06 GENTILE | Planes, authority, provenance | Candidate formation and GTL |
+| 06 GENTILE | Planes, authority, provenance, GENIUSS context | Candidate formation and GTL |
 | 07 GTL | GENTILE, effectivity, authority | Validation, trial, deployment |
 | 08 GENTILE–GTL Integration | GENTILE and GTL | Full semantic-to-execution lifecycle |
 | 09 Learning Mechanics | Closure, evidence, provenance | Evolution triggers and SAI-AUT-OS |
 | 10 SAI-AUT-OS | Documents 01–09 | Operational governance implementation |
 | AI-II | Entire architecture | Interoperability profiles and interfaces |
+| 12 GENIUSS | Planes, evidence, provenance | GENTILE, GTL and evidence services |
 
 ## 17. Scope boundaries
 
@@ -602,6 +646,8 @@ The architecture does not yet claim:
 - How should SAI-AUT-OS conformance be tested?
 - How should schema, semantic and lifecycle versions interact?
 - How should long-lived systems preserve provenance across custodian changes?
+- When may a GENIUSS hypothesis be promoted to an assertion, and by whom?
+- Which GENIUSS outputs qualify as evidence, and under which evidence class?
 
 ## 20. Closing statement
 

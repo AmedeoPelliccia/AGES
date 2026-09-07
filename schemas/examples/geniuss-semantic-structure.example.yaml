@@ -1,0 +1,130 @@
+# ages:authored — Exploratory example. Non-normative.
+# GENIUSS semantic structure — illustrative fields only; structures are
+# expected to change through RFCs (rfcs/0018-geniuss.md).
+# Sigma(t) = <V, E, R, A, C, H, T>: entities, relations, roles,
+# attributes, confidence, hypotheses and temporal state.
+structureId: SS-0117
+status: current
+producedBy: engine:geniuss@0.1-exploratory
+observedAt: 2026-09-04T08:41:00Z
+priorStructure: SS-0116          # recursive conditioning: Sigma(t-1)
+
+context:
+  system: example-org/atmospheric-test-platform
+  environment: high-altitude-test-campaign
+  lifecycleStage: in-service
+  activeBaseline: baseline://example-org/atp/B-0042
+
+inputs:                           # heterogeneous observations
+  - inputId: OBS-9001
+    channel: sensor
+    source: sensor://atp/bay-3/thermocouple-tc-07
+    statement: "Bay-3 bearing temperature 92 C, rising 0.8 C/min."
+    recordedAt: 2026-09-04T08:40:12Z
+    integrity: verified
+  - inputId: OBS-9002
+    channel: telemetry
+    source: telemetry://atp/vibration/bay-3
+    statement: "Vibration spectrum unchanged within nominal band."
+    recordedAt: 2026-09-04T08:40:15Z
+    integrity: verified
+  - inputId: OBS-9003
+    channel: natural-language
+    source: human:test-conductor-04
+    statement: "Bay 3 feels hot again, same as last week."
+    recordedAt: 2026-09-04T08:40:58Z
+    integrity: unverified
+  - inputId: OBS-9004
+    channel: history
+    source: closure-record://atp/2026-08-28/maintenance-114
+    statement: "Thermocouple TC-07 recalibrated 2026-08-28."
+    recordedAt: 2026-08-28T14:02:00Z
+    integrity: verified
+
+entities:                         # V — entities, events, concepts
+  - id: ENT-bearing-b3
+    type: component
+    label: "Bay-3 main bearing assembly"
+    salience: 0.91
+    attributes:                   # A — attributes and properties
+      temperatureC: 92
+      temperatureTrendCPerMin: 0.8
+    level: inference              # observation | inference | hypothesis | assertion
+    derivedFrom: [OBS-9001]
+    confidence: 0.88              # C — confidence and uncertainty
+  - id: ENT-tc-07
+    type: sensor
+    label: "Thermocouple TC-07"
+    salience: 0.64
+    attributes:
+      lastCalibration: 2026-08-28
+    level: observation
+    derivedFrom: [OBS-9004]
+    confidence: 0.99
+  - id: EVT-thermal-excursion
+    type: event
+    label: "Bay-3 thermal excursion in progress"
+    salience: 0.95
+    level: inference
+    derivedFrom: [OBS-9001, OBS-9003]
+    confidence: 0.71
+
+relations:                        # E — relations, with R roles
+  - from: ENT-tc-07
+    role: measures
+    to: ENT-bearing-b3
+    confidence: 0.99
+    derivedFrom: [OBS-9001]
+  - from: EVT-thermal-excursion
+    role: affects
+    to: ENT-bearing-b3
+    confidence: 0.71
+    derivedFrom: [OBS-9001]
+
+hypotheses:                       # H — competing contextual hypotheses
+  - id: H1
+    statement: "Bearing assembly is overheating."
+    confidence: 0.71
+    supportedBy: [OBS-9001, OBS-9003]
+    contradictedBy: [OBS-9002]
+    revisionCondition: "Independent temperature channel confirms or refutes."
+  - id: H2
+    statement: "Thermocouple TC-07 calibration anomaly after maintenance-114."
+    confidence: 0.24
+    supportedBy: [OBS-9004, OBS-9002]
+    contradictedBy: []
+    revisionCondition: "Cross-check against redundant thermocouple TC-08."
+  - id: H3
+    statement: "Unknown or unmodelled condition."
+    confidence: 0.05
+    supportedBy: []
+    contradictedBy: []
+    revisionCondition: "New observation class becomes available."
+
+unresolvedAmbiguities:
+  - expression: "same as last week"
+    candidateInterpretations:
+      - "Recurrence of maintenance-114 thermal event."
+      - "Unrelated subjective impression."
+    selectedInterpretation: null
+    consequence: "Temporal correlation with maintenance-114 not established."
+
+temporal:                         # T — temporal and state information
+  validFrom: 2026-09-04T08:40:12Z
+  validUntil: null
+  updateTrigger: "New bay-3 thermal or vibration observation."
+  supersedes: SS-0116
+
+provenance:
+  transformation: engine:geniuss@0.1-exploratory
+  derivedFrom: [OBS-9001, OBS-9002, OBS-9003, OBS-9004]
+  originatedFrom:
+    - sensor://atp/bay-3/thermocouple-tc-07
+    - telemetry://atp/vibration/bay-3
+    - human:test-conductor-04
+    - closure-record://atp/2026-08-28/maintenance-114
+  integrityHash: "sha256:4c71ad..."
+
+# This structure is an interpretation, not a measurement, not an intent,
+# not an action candidate and not an authorisation.
+downstreamConsumers: [gentile, gtl, evidence-services]

@@ -16,25 +16,39 @@ lifecycle remains subject to RFC review through
 
 | Engine | Primary transformation | Core question | Primary output |
 |---|---|---|---|
+| [GENIUSS](12-GENIUSS.md) | Heterogeneous contextual input → integrated semantic structure | What does this input mean in the current context? | Contextualised semantic structure with hypotheses and confidence |
 | GENTILE | Intent, context and interactive language exchange → negotiated structured representation | What is intended? | Semantic or structural artefact |
 | GTL | Structured semantic artefact → grounded transitive action candidate | What bounded operation could realise it? | Technically executable, not-yet-authorised action candidate |
 
 The concise relationship is:
 
-> **GENTILE co-constructs meaning. GTL grounds meaning into action.**
+> **GENIUSS integrates meaning. GENTILE co-constructs meaning. GTL grounds
+> meaning into action.**
 
-The two engines are complementary but not interchangeable.
+The engines are complementary but not interchangeable.
+
+GENIUSS does not determine what an actor intends.
 
 GENTILE does not by itself define a complete operational realisation.
 
 GTL does not by itself establish semantic agreement or governance authority.
+
+This document describes the GENTILE–GTL integration lifecycle. Where
+interpretation of heterogeneous input is required before intent can be
+negotiated, GENIUSS supplies the grounding context consumed by GENTILE and,
+where relevant, by GTL ([`12-GENIUSS.md`](12-GENIUSS.md)). GENIUSS outputs
+enter this lifecycle as interpretation, never as intent, authority or
+execution.
 
 ## 2. Correct evolutionary sequence
 
 For an evolutionary case, the complete sequence is:
 
 ```text
-Intent
+Input and context
+→ GENIUSS (where interpretation is required)
+→ Contextual semantic structure
+→ Intent
 → GENTILE
 → Negotiated semantic artefact
 → Intent classification
@@ -646,6 +660,8 @@ Where:
 
 The integrated provenance chain should preserve:
 
+- source observations and, where applicable, the GENIUSS semantic structure
+  derived from them;
 - source intent;
 - interaction history;
 - semantic artefact;
@@ -664,7 +680,8 @@ The integrated provenance chain should preserve:
 A minimal chain is:
 
 ```text
-Intent
+Interpretation provenance, where applicable
+→ Intent
 → semantic provenance
 → grounding provenance
 → validation provenance
@@ -815,6 +832,7 @@ subject to research, experimentation and RFC review.
 - [`06-GENTILE.md`](06-GENTILE.md)
 - [`07-GTL.md`](07-GTL.md)
 - [`09-learning-mechanics.md`](09-learning-mechanics.md)
+- [`12-GENIUSS.md`](12-GENIUSS.md)
 - [`../schemas/README.md`](../schemas/README.md)
 - [`../examples/README.md`](../examples/README.md)
 - [`../research/open-questions.md`](../research/open-questions.md)

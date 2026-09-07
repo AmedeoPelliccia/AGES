@@ -459,7 +459,23 @@ flowchart LR
 GENTILE defines what is intended and why. It does not by itself define the
 complete executable realisation or authorise the transition.
 
-## 14. Relation to GTL
+## 14. Relation to GENIUSS
+
+Where the intent concerns a situation that must first be interpreted from
+heterogeneous input — sensors, telemetry, events, messages or history —
+[GENIUSS](12-GENIUSS.md) may supply the contextual semantic structure that
+GENTILE uses as grounding context.
+
+The relationship is:
+
+> **GENIUSS integrates meaning. GENTILE co-constructs intent.**
+
+GENTILE should treat a GENIUSS structure as interpretation, not as
+established fact: hypotheses, confidence and unresolved ambiguity supplied by
+GENIUSS should be surfaced for negotiation rather than silently adopted.
+A correct interpretation of an input is not a negotiated intent.
+
+## 15. Relation to GTL
 
 Where a semantic artefact calls for a bounded operation on an identified
 object of the world or system, GTL may ground it into an executable action
@@ -498,7 +514,7 @@ GTL should return, or reference:
 The handoff is described in
 [`08-gentile-gtl-integration.md`](08-gentile-gtl-integration.md).
 
-## 15. Operational use
+## 16. Operational use
 
 GENTILE may support ordinary operational requests without creating a new
 baseline.
@@ -524,7 +540,7 @@ baseline and delegated operational envelope.
 No new age is created unless the request modifies canonical configuration
 identity.
 
-## 16. Evolutionary use
+## 17. Evolutionary use
 
 An evolutionary request may begin with a broad objective such as:
 
@@ -549,7 +565,7 @@ After classification, the artefact may support formation of a candidate
 change. GTL may then generate one or more bounded implementation or deployment
 candidates.
 
-## 17. Evidentiary use
+## 18. Evidentiary use
 
 GENTILE may structure observations and claims into evidence-ready artefacts.
 
@@ -566,7 +582,7 @@ It should distinguish:
 A structured evidentiary statement is not automatically valid evidence. Its
 source, integrity, method and applicability must still be assessed.
 
-## 18. Governance use
+## 19. Governance use
 
 GENTILE may structure:
 
@@ -582,7 +598,7 @@ GENTILE may structure:
 It may improve clarity and provenance but must not substitute linguistic
 coherence for competent authority.
 
-## 19. Failure modes
+## 20. Failure modes
 
 Potential GENTILE failure modes include:
 
@@ -604,7 +620,7 @@ Potential GENTILE failure modes include:
 Profiles should define detection, review and mitigation mechanisms
 proportionate to risk.
 
-## 20. Security and integrity considerations
+## 21. Security and integrity considerations
 
 GENTILE implementations should consider:
 
@@ -622,7 +638,7 @@ GENTILE implementations should consider:
 Security controls should not erase legitimate ambiguity, dissent or
 provenance.
 
-## 21. Human participation
+## 22. Human participation
 
 Human participation may occur as:
 
@@ -641,7 +657,7 @@ The participant’s role, competence and authority must be explicit.
 GENTILE should support meaningful review rather than merely presenting a
 finished artefact for passive confirmation.
 
-## 22. Implementation-neutral interface
+## 23. Implementation-neutral interface
 
 A future GENTILE interface may expose functions equivalent to:
 
@@ -664,7 +680,7 @@ This list is illustrative and non-normative.
 The architecture should permit different implementations while preserving a
 common semantic artefact model and provenance expectations.
 
-## 23. Minimal artefact fields
+## 24. Minimal artefact fields
 
 An exploratory GENTILE artefact may include:
 
@@ -719,7 +735,7 @@ provenance:
 
 This example is non-normative.
 
-## 24. Design principles
+## 25. Design principles
 
 GENTILE should follow these principles:
 
@@ -734,7 +750,7 @@ GENTILE should follow these principles:
 9. **Not every artefact is a candidate change.**
 10. **Downstream systems must be able to inspect the semantic basis of action.**
 
-## 25. Open questions
+## 26. Open questions
 
 - What minimum structure constitutes semantic closure?
 - Can an artefact be semantically closed while participants retain conflicting
@@ -758,7 +774,7 @@ GENTILE should follow these principles:
   asynchronous?
 - How should machine-originated intent be attributed and bounded?
 
-## 26. Unresolved issues
+## 27. Unresolved issues
 
 - formal semantics for semantic closure;
 - minimum provenance requirements;
@@ -782,5 +798,6 @@ GENTILE should follow these principles:
 - [`05-identity-and-provenance.md`](05-identity-and-provenance.md)
 - [`07-GTL.md`](07-GTL.md)
 - [`08-gentile-gtl-integration.md`](08-gentile-gtl-integration.md)
+- [`12-GENIUSS.md`](12-GENIUSS.md)
 - [`../GLOSSARY.md`](../GLOSSARY.md)
 - [`../rfcs/0009-gentile.md`](../rfcs/0009-gentile.md)
