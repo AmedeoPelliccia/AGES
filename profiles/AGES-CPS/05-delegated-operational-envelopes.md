@@ -43,5 +43,5 @@ An illustrative, non-normative schema is provided in
 ## 4. Related material
 
 [`04-multi-rate-autonomy.md`](04-multi-rate-autonomy.md) ·
-[`06-gentile-and-gtl-for-robotics.md`](06-gentile-and-gtl-for-robotics.md) ·
+[`06-functional-engine-toolchain-for-robotics.md`](06-functional-engine-toolchain-for-robotics.md) ·
 [`../../architecture/04-effectivity.md`](../../architecture/04-effectivity.md).

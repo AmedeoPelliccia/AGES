@@ -131,7 +131,21 @@ implementation requires it.
 
 ## 10. Proposed functional engines: GENIUSS, GENTILE and GTL
 
-Three proposed functional engines are under exploration within AGES:
+Three proposed functional engines are under exploration alongside AGES:
+
+> **AGES defines the paradigm under which functional engines may operate
+> and evolve. GENIUSS, GENTILE and GTL are independent, composable
+> functional engines that may form an AGES-compatible cognitive-action
+> toolchain.**
+
+The engines are catalogued in [`engines/`](engines/README.md), compose only
+through the explicit contracts of [`contracts/`](contracts/README.md), and
+their possible compositions are described in
+[`toolchains/`](toolchains/README.md). The distinction **engine ≠ toolchain ≠
+AGES** is structural: none of the three engines contains or requires the
+others, and — as an architectural invariant — **conformance to AGES MUST NOT
+require GENIUSS, GENTILE or GTL**. AGES must equally describe an industrial
+plant, an aerospace system or an evolutive controller that uses none of them.
 
 | Engine | Primary transformation | Core question | Primary output |
 |---|---|---|---|
@@ -155,7 +169,10 @@ Where inputs are heterogeneous — sensors, telemetry, events, messages,
 history — GENIUSS interprets them before intent is negotiated:
 observations and context → GENIUSS → contextual semantic structure →
 GENTILE. Understanding an input is not the same as determining what an
-actor intends.
+actor intends. The composition is not a rigid pipeline: GENIUSS may feed
+GTL directly where no linguistic intent needs negotiation, and GENTILE
+may operate without GENIUSS where the necessary context is already
+structured ([`toolchains/README.md`](toolchains/README.md)).
 
 In the evolutionary case: intent → GENTILE → negotiated semantic
 artefact → intent classification → candidate change → GTL → grounded
@@ -266,12 +283,15 @@ replaces neither robotics middleware nor runtime safety mechanisms.
 | [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, GENIUSS, GENTILE, GTL, GENTILE–GTL integration, AI-II sketch |
 | [`models/`](models/README.md) | Minimal conceptual, temporal, transition and identity-continuity models |
 | [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects, including GENIUSS semantic structure, GENTILE semantic artefact, GTL action candidate and closure evidence |
+| [`engines/`](engines/README.md) | Independent functional engines — GENIUSS, GENTILE, GTL — with per-engine contracts and artefact models |
+| [`contracts/`](contracts/README.md) | The contract layer through which engines compose: semantic context, intent artefact, action candidate, provenance envelope, confidence model |
+| [`toolchains/`](toolchains/README.md) | Compositions of engines, including the canonical cognitive-action chain |
 | [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES; AGES vs. conventional version control and model checkpoints |
 | [`profiles/`](profiles/README.md) | Application profiles; AGES-CPS — exploratory profile for cyber-physical and robotic systems |
 | [`research/`](research/README.md) | Open questions, terminological issues, bibliography |
 | [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions; draft RFCs for GENIUSS, GENTILE, GTL and their integration lifecycle; draft AGES-CPS RFCs |
 | [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical; worked GENIUSS, GENTILE and GTL examples; AGES-CPS robotic examples |
-| [`tools/`](tools/README.md) | Deterministic repository generator (single source of truth for structure) |
+| [`tools/`](tools/README.md) | Repository infrastructure tooling: the deterministic repository generator (single source of truth for structure) — distinct from the AGES functional engines in [`engines/`](engines/README.md) |
 
 ## 16. Current status
 

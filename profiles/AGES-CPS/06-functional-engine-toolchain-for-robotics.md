@@ -1,8 +1,33 @@
 <!-- ages:authored — informative. This document does not define conformance requirements. -->
 
-# GENTILE and GTL for Robotics
+# Functional Engine Toolchain for Robotics
 
 **Status:** Exploratory application profile · **Document class:** Informative · **Repository:** AGES
+
+**Purpose.** Describe how this profile **applies** the AGES functional
+engines and their toolchain to robotic intent and action. The engines are
+defined at AGES level ([`../../engines/`](../../engines/README.md), with
+their compositions in [`../../toolchains/`](../../toolchains/README.md));
+AGES-CPS applies them without redefining them:
+
+```text
+AGES
+    engines/
+        GENIUSS · GENTILE · GTL
+
+AGES-CPS
+    applies:
+        GENIUSS · GENTILE · GTL
+```
+
+GENIUSS, GENTILE and GTL are not concepts of AGES-CPS, and no AGES-CPS
+system is required to use them
+([`../../engines/README.md`](../../engines/README.md), section 4). Where
+heterogeneous robotic input — sensors, telemetry, events, operator messages —
+must be interpreted before intent can be negotiated, GENIUSS
+([`../../engines/GENIUSS/README.md`](../../engines/GENIUSS/README.md))
+supplies the contextual semantic structure consumed by GENTILE and, where
+relevant, by GTL.
 
 ## 1. GENTILE in robotics
 
@@ -55,7 +80,18 @@ translated through adapters into a behaviour tree, a task graph, a
 motion-planning request, a deployment procedure, a configuration delta,
 a service sequence, a controller update or a safe-state procedure.
 
-## 3. GENTILE-to-GTL robotic action flow
+## 3. Applying the toolchain to robotic action
+
+The profile applies the compositions catalogued in
+[`../../toolchains/README.md`](../../toolchains/README.md) without altering
+them. A robotic deployment may use the full cognitive-action chain
+(GENIUSS → GENTILE → GTL) where heterogeneous input must be interpreted, the
+language-only chain (GENTILE → GTL) where the necessary context is already
+structured, or the perception-action chain (GENIUSS → GTL) where no
+linguistic intent needs negotiation
+([`../../toolchains/cognitive-action-chain.md`](../../toolchains/cognitive-action-chain.md)).
+
+The negotiated-intent route is:
 
 ```mermaid
 flowchart LR
@@ -107,6 +143,8 @@ flowchart TB
 
 ## 5. Related material
 
+[`../../engines/README.md`](../../engines/README.md) ·
+[`../../toolchains/cognitive-action-chain.md`](../../toolchains/cognitive-action-chain.md) ·
 [`../../architecture/08-gentile-gtl-integration.md`](../../architecture/08-gentile-gtl-integration.md) ·
 [`../../examples/robotic-operational-inspection.md`](../../examples/robotic-operational-inspection.md) ·
 [`../../examples/bounded-cyber-physical-action.md`](../../examples/bounded-cyber-physical-action.md).
