@@ -278,6 +278,14 @@ GTL      What operation could realise the intended state?
 AGES     Is the candidate operation admissible and authorised?
 ```
 
+The engines are independent, composable functional units: none contains or
+requires another, they compose only through the contract artefacts of
+[`../contracts/`](../contracts/README.md), and conformance to AGES requires
+none of them. Their component definitions live in
+[`../engines/`](../engines/README.md) and their possible compositions in
+[`../toolchains/`](../toolchains/README.md); the documents in this directory
+remain the full architectural treatments.
+
 ### GENIUSS
 
 **GENIUSS — Graph Engine for Neural Integration and Understanding of Semantic
@@ -569,6 +577,11 @@ This directory is supported by:
 - [`../theory/`](../theory/) — conceptual foundations;
 - [`../models/`](../models/) — formal and semi-formal models;
 - [`../schemas/`](../schemas/) — structured object representations;
+- [`../engines/`](../engines/) — the functional engines as independent,
+  composable units with explicit contracts;
+- [`../contracts/`](../contracts/) — the contract artefacts through which
+  engines compose;
+- [`../toolchains/`](../toolchains/) — the possible compositions of engines;
 - [`../examples/`](../examples/) — illustrative scenarios;
 - [`../positioning/`](../positioning/) — boundary-setting and comparison;
 - [`../research/`](../research/) — unresolved questions;

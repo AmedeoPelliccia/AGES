@@ -222,11 +222,14 @@ add("README.md", T("""
     | [`architecture/`](architecture/README.md) | Architectural planes, state and transition model, evidence and authority, effectivity, provenance, AI-II sketch |
     | [`models/`](models/README.md) | Minimal conceptual, temporal, transition and identity-continuity models |
     | [`schemas/`](schemas/README.md) | Exploratory, non-normative YAML examples of core objects |
+    | [`engines/`](engines/README.md) | Independent functional engines — GENIUSS, GENTILE, GTL — with per-engine contracts and artefact models |
+    | [`contracts/`](contracts/README.md) | The contract layer through which engines compose |
+    | [`toolchains/`](toolchains/README.md) | Compositions of engines, including the canonical cognitive-action chain |
     | [`positioning/`](positioning/README.md) | Relationship of AI-II and SAI-AUT-OS to AGES |
     | [`research/`](research/README.md) | Open questions, terminological issues, bibliography |
     | [`rfcs/`](rfcs/README.md) | The RFC process governing changes to foundational definitions |
     | [`examples/`](examples/README.md) | Illustrative applications: AI-centred, aerospace, cyber-physical |
-    | [`tools/`](tools/README.md) | Deterministic repository generator (single source of truth for structure) |
+    | [`tools/`](tools/README.md) | Repository infrastructure tooling: the deterministic repository generator (single source of truth for structure) |
 
     ## 14. Current status
 
@@ -1568,7 +1571,7 @@ doc("profiles/AGES-CPS/README.md", "Informative",
     [hardware–software co-baselines](03-hardware-software-co-baselines.md) ·
     [multi-rate autonomy](04-multi-rate-autonomy.md) ·
     [delegated operational envelopes](05-delegated-operational-envelopes.md) ·
-    [GENTILE and GTL for robotics](06-gentile-and-gtl-for-robotics.md) ·
+    [functional engine toolchain for robotics](06-functional-engine-toolchain-for-robotics.md) ·
     [physical invariants](07-physical-invariants.md) ·
     [irreversibility and recovery](08-irreversibility-and-recovery.md) ·
     [digital–physical closure evidence](09-digital-physical-closure-evidence.md) ·
@@ -1592,9 +1595,11 @@ _CPS_DOCS = [
     ("05-delegated-operational-envelopes.md", "Delegated Operational Envelopes",
      "The bounded runtime authority delegated in advance to the "
      "Operational Plane."),
-    ("06-gentile-and-gtl-for-robotics.md", "GENTILE and GTL for Robotics",
-     "GENTILE and GTL applied to robotic intent negotiation and grounded "
-     "robotic action candidates."),
+    ("06-functional-engine-toolchain-for-robotics.md",
+     "Functional Engine Toolchain for Robotics",
+     "How the profile applies the GENIUSS, GENTILE and GTL engines and "
+     "their toolchain to robotic intent negotiation and grounded robotic "
+     "action candidates, without defining the engines."),
     ("07-physical-invariants.md", "Physical Invariants",
      "Physical properties, capability limits and safety boundaries that "
      "must hold across transitions."),
@@ -1750,6 +1755,136 @@ for _rel, _title, _summary in _CPS_RFCS:
 
 
 # ============================================================================
+# engines/, contracts/ and toolchains/
+# ============================================================================
+
+doc("engines/README.md", "Informative", "engines/ — Functional Engines", """
+    Purpose: catalogue the proposed AGES functional engines — GENIUSS,
+    GENTILE and GTL — as independent, composable functional units with
+    explicit contracts. Engine ≠ toolchain ≠ AGES: an engine is an
+    autonomous functional unit; a toolchain
+    ([`../toolchains/`](../toolchains/README.md)) is a composition of
+    engines; AGES governs the identity, evolution and authority of the
+    system that uses them. No engine contains, requires or knows the
+    implementation of another; engines compose only through the contract
+    artefacts of [`../contracts/`](../contracts/README.md). The engines are
+    primarily Operational Plane capabilities, and conformance to AGES MUST
+    NOT require GENIUSS, GENTILE or GTL. Contents:
+    [`GENIUSS/`](GENIUSS/README.md) · [`GENTILE/`](GENTILE/README.md) ·
+    [`GTL/`](GTL/README.md). This directory holds tooling of the AGES
+    system model, not tooling of this repository
+    ([`../tools/`](../tools/README.md)).
+    """)
+
+_ENGINE_DOCS = [
+    ("GENIUSS", "Graph Engine for Neural Integration and Understanding of "
+     "Semantic Structures",
+     "contextual observations", "semantic-context.md", "SemanticContext",
+     "semantic-model.md", "Semantic Model",
+     "the semantic structure produced by contextual integration"),
+    ("GENTILE", "Generative Engine for Neural Transformation through "
+     "Interactive Language Exchange",
+     "linguistic interaction and optional semantic context",
+     "intent-artefact.md", "IntentArtefact",
+     "intent-model.md", "Intent Model",
+     "the negotiated-intent artefact produced by co-construction"),
+    ("GTL", "Generative Transitive Language",
+     "a structured semantic or intent artefact and optional grounded "
+     "context", "action-candidate.md", "ActionCandidate",
+     "action-candidate-model.md", "Action-Candidate Model",
+     "the grounded, not-yet-authorised action candidate"),
+]
+for _eng, _exp, _inp, _cf, _cn, _mf, _mt, _ms in _ENGINE_DOCS:
+    doc(f"engines/{_eng}/README.md", "Informative", f"{_eng} — Engine", f"""
+        {_eng} — {_exp}: an independent functional engine transforming
+        {_inp} into a [`{_cn}`](../../contracts/{_cf}) contract artefact.
+        Contents: [`contract.md`](contract.md) · [`{_mf}`]({_mf}).
+        Part of [`engines/`](../README.md).
+        """)
+    doc(f"engines/{_eng}/contract.md", "Informative",
+        f"{_eng} — Contract", f"""
+        The input/output contract that makes {_eng} an independent,
+        composable functional engine: it consumes {_inp} and emits a
+        [`{_cn}`](../../contracts/{_cf}). Cross-engine inputs are optional
+        by contract; no engine knows another engine's implementation, no
+        output carries authorisation. Part of
+        [`engines/`](../README.md).
+        """)
+    doc(f"engines/{_eng}/{_mf}", "Informative", f"{_eng} — {_mt}", f"""
+        Model of {_ms}, exchanged through the
+        [`{_cn}`](../../contracts/{_cf}) contract. Part of
+        [`engines/`](../README.md).
+        """)
+
+doc("contracts/README.md", "Informative", "contracts/ — Engine Contract Layer", """
+    Purpose: define the semantically typed contract artefacts through which
+    the functional engines ([`../engines/`](../engines/README.md)) compose:
+    loose coupling + strong semantic contracts. Engines integrate through
+    contract artefacts, never through mutual dependencies. Contents:
+    [semantic context](semantic-context.md) ·
+    [intent artefact](intent-artefact.md) ·
+    [action candidate](action-candidate.md) ·
+    [provenance envelope](provenance-envelope.md) ·
+    [confidence model](confidence-model.md).
+    """)
+
+_CONTRACT_DOCS = [
+    ("semantic-context.md", "Contract — SemanticContext",
+     "The artefact through which contextual understanding is exchanged: "
+     "entities, relations, roles, attributes, confidence, hypotheses and "
+     "temporal state. An interpretation, never intent, authority or "
+     "action."),
+    ("intent-artefact.md", "Contract — IntentArtefact",
+     "The artefact through which negotiated intent is exchanged: intended "
+     "state, classification, constraints, acceptance criteria and declared "
+     "ambiguity. Semantic agreement is not authorisation."),
+    ("action-candidate.md", "Contract — ActionCandidate",
+     "The artefact through which grounded, technically executable but "
+     "not-yet-authorised operations are proposed. ActionCandidate is never "
+     "an authorised action."),
+    ("provenance-envelope.md", "Contract — Provenance Envelope",
+     "The provenance information every engine artefact must carry: "
+     "producing engine identity and version, consumed inputs, sources, "
+     "timestamps, baseline context and integrity."),
+    ("confidence-model.md", "Contract — Confidence Model",
+     "How confidence, uncertainty, ambiguity and competing hypotheses are "
+     "represented and preserved across engine boundaries. Uncertainty must "
+     "survive the handoff; inference is not fact."),
+]
+for _rel, _title, _summary in _CONTRACT_DOCS:
+    doc(f"contracts/{_rel}", "Informative", _title, f"""
+        {_summary}
+        Part of the engine contract layer ([`README.md`](README.md)).
+        """)
+
+doc("toolchains/README.md", "Informative", "toolchains/ — Engine Compositions", """
+    Purpose: describe how the independent functional engines
+    ([`../engines/`](../engines/README.md)) may be composed through their
+    contracts ([`../contracts/`](../contracts/README.md)). A toolchain is a
+    composition of engines — components and compositions remain distinct —
+    and no toolchain is mandatory: conformance to AGES requires neither the
+    engines nor any composition of them. Compositions include the full
+    cognitive-action chain
+    ([`cognitive-action-chain.md`](cognitive-action-chain.md)), GENTILE →
+    GTL, GENIUSS → GTL, single engines, and grounding of an
+    already-structured artefact. Every toolchain terminates at the
+    governance boundary; the Evolution Control Plane is not part of any
+    toolchain.
+    """)
+
+doc("toolchains/cognitive-action-chain.md", "Informative",
+    "The Cognitive-Action Chain", """
+    The canonical full composition GENIUSS → GENTILE → GTL: heterogeneous
+    input to semantic context to negotiated intent to grounded action
+    candidate, ending at the governance boundary. The same chain may yield
+    an operational action (no new age) or a candidate change entering the
+    Evolution Plane; the classification is a governance act, not an engine
+    act. One possible composition, not the definition of the engines
+    ([`README.md`](README.md)).
+    """)
+
+
+# ============================================================================
 # tools/ and .github/
 # ============================================================================
 
@@ -1760,6 +1895,13 @@ doc("tools/README.md", "Process", "tools/ — Deterministic Tooling", """
     are made in the generator first; `--check` verifies the tree and
     `--manifest` emits a SHA-256 record of the seed set. The generator is
     copied into this directory alongside this file.
+
+    This directory holds tooling of the **repository**, not tooling of the
+    AGES **system model**. The functional engines — GENIUSS, GENTILE and
+    GTL — are not repository tooling and live in
+    [`../engines/`](../engines/README.md), with their contracts in
+    [`../contracts/`](../contracts/README.md) and their compositions in
+    [`../toolchains/`](../toolchains/README.md).
     """)
 
 add(".github/ISSUE_TEMPLATE/theory-proposal.yml", T("""

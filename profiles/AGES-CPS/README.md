@@ -30,7 +30,7 @@ safety or certification standard.
 | [`03-hardware-software-co-baselines.md`](03-hardware-software-co-baselines.md) | Hardware–software co-baselines and baseline impact |
 | [`04-multi-rate-autonomy.md`](04-multi-rate-autonomy.md) | Control, operation, adaptation and governance timescales |
 | [`05-delegated-operational-envelopes.md`](05-delegated-operational-envelopes.md) | Bounded runtime authority |
-| [`06-gentile-and-gtl-for-robotics.md`](06-gentile-and-gtl-for-robotics.md) | GENTILE and GTL applied to robotic intent and action |
+| [`06-functional-engine-toolchain-for-robotics.md`](06-functional-engine-toolchain-for-robotics.md) | How the profile applies the GENIUSS–GENTILE–GTL toolchain to robotic intent and action |
 | [`07-physical-invariants.md`](07-physical-invariants.md) | Physical invariants across transitions |
 | [`08-irreversibility-and-recovery.md`](08-irreversibility-and-recovery.md) | Rollback, compensation, safe state, recovery baseline |
 | [`09-digital-physical-closure-evidence.md`](09-digital-physical-closure-evidence.md) | Evidence connecting authorisation, execution and physical result |

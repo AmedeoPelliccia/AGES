@@ -41,7 +41,7 @@ GTL candidates are translated through adapters into
 middleware-executable forms — behaviour trees, task graphs,
 motion-planning requests, deployment procedures, configuration deltas,
 service sequences, controller updates or safe-state procedures
-([`06-gentile-and-gtl-for-robotics.md`](06-gentile-and-gtl-for-robotics.md)).
+([`06-functional-engine-toolchain-for-robotics.md`](06-functional-engine-toolchain-for-robotics.md)).
 Adapters are implementation concerns; the profile constrains what an
 adapter receives (a bounded, authorised candidate), not how it is
 implemented.
